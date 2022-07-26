@@ -29,7 +29,9 @@ public class UserDaoHibernateImpl implements UserDao{
                         "age int);").executeUpdate();
             session.getTransaction().commit();
             session.close();
-                System.out.println("Tablica koshuldu");
+            System.out.println("┌——————————————————————————————————————————┐");
+            System.out.println("│ КУТТУКТАЙБЫЗ! ТАБЛИЦА ИЙГИЛИКТУУ ТУЗУЛДУ │");
+            System.out.println("└——————————————————————————————————————————┘");
         }catch (HibernateException e){
             System.out.println(e.getMessage());
         }
@@ -60,6 +62,9 @@ public class UserDaoHibernateImpl implements UserDao{
 
             session.getTransaction().commit();
             session.close();
+            System.out.println("┌——————————————————————————————————————————┐");
+            System.out.println("│ ТАБЛИЦАГА МААЛЫМАТТАР ИЙГИЛИКТУУ КОШУЛДУ │");
+            System.out.println("└——————————————————————————————————————————┘");
         }catch (HibernateException e){
             System.out.println(e.getMessage());
         }
