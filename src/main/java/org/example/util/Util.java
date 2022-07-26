@@ -49,7 +49,7 @@ public class Util {
     prop.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/Hibernate");
     prop.setProperty("hibernate.connection.username", "postgres");
     prop.setProperty("hibernate.connection.password", "postgres213");
-    prop.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+    prop.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
     prop.setProperty("hibernate.show_sql", "true");
     prop.setProperty("hibernate.hbm2ddl.auto", "update");
     prop.setProperty("hibernate.current_session_context_class", "thread");

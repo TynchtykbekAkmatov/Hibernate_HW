@@ -16,10 +16,10 @@ public class User {
             generator = "user_HW_sequence")
     private Long id;
 
-    @Column(name = "first_name")
+  //  @Column(name = "first_name")
     private String name;
 
-    @Column(name = "last_name")
+  //  @Column(name = "last_name")
     private String lastName;
 
     @Column

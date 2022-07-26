@@ -22,11 +22,11 @@ public class UserDaoHibernateImpl implements UserDao{
             Session session = Util.getSession().openSession();
             session.beginTransaction();
             session.createSQLQuery(
-                     "create table if not exists users1(" +
+                     "create table if not exists users_hw(" +
                         "id serial primary key," +
                         "name varchar," +
                         "lastName varchar," +
-                        "age int)").executeUpdate();
+                        "age int);").executeUpdate();
             session.getTransaction().commit();
             session.close();
                 System.out.println("Tablica koshuldu");
@@ -54,8 +54,10 @@ public class UserDaoHibernateImpl implements UserDao{
         try{
             Session session = Util.getSession().openSession();
             session.beginTransaction();
+
             User user = new User(name, lastName, age);
             session.save(user);
+
             session.getTransaction().commit();
             session.close();
         }catch (HibernateException e){
@@ -69,8 +71,9 @@ public class UserDaoHibernateImpl implements UserDao{
             Session session = Util.getSession().openSession();
             session.beginTransaction();
 
-            User user = session.get(User.class, id);
-            session.delete(user);
+//            User user = session.get(User.class, id);
+//            session.delete(user);
+            session.createSQLQuery("delete from users_hw where id = "+ id).executeUpdate();
 
             session.getTransaction().commit();
             session.close();
@@ -86,6 +89,7 @@ public class UserDaoHibernateImpl implements UserDao{
             Session session = Util.getSession().openSession();
             session.beginTransaction();
             List<User> users = session.createQuery("from User").getResultList();
+
             session.getTransaction().commit();
             session.close();
             return users;
@@ -100,7 +104,7 @@ public class UserDaoHibernateImpl implements UserDao{
         try {
             Session session = Util.getSession().openSession();
             session.beginTransaction();
-            session.createQuery("delete from User").executeUpdate();
+            session.createSQLQuery("delete from users_hw").executeUpdate();
             session.getTransaction().commit();
             session.close();
         } catch (HibernateException e) {
